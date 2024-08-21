@@ -1,0 +1,20 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+{%block body%}
+{% if user.profile%}
+    <div class = " my-5 mx-5" >
+        <div class = "rounded shadow-lg" width='600'>
+            <div >
+                {%if user.profile.image%}
+                    <img src="{{user.profile.image.url}}" width="400" class = "mx-10">
+                    {%else%}
+                    <img src="{% static 'mysite/images/Noname.jpg' %}" width="400" class = "mx-10 ">
+                {%endif%}
+            </div>
+            <h1 class ="my-10 font-bold text-3xl m-2">{{user.username}}</h1>
+        </div>
+    </div>
+{%else%}
+<h1 class ="font-bold text-5xl">Зарегестрируйтесь/войтиде в аккаунт</h1>
+{%endif%}
+{% endblock body%}
